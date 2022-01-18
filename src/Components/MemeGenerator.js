@@ -47,7 +47,7 @@ const MemeGenerator = ({meme, setMeme, getRandomImage, handleChange}) => {
                 </form>
                 <div className="meme__uploader">
                     <p className="meme__uploader">Or upload your own image
-                    <label for="file" class="button">Select Image</label>
+                    <label htmlFor="file" className="button">Select Image</label>
                     <input 
                     id="file"
                     className="upload"
