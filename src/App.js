@@ -35,16 +35,20 @@ function App() {
     setMeme((prev) => ({...prev, [e.target.name]: e.target.value}))
   }
 
-  // const handleBlur = (e) => {
-  //   console.log('on blur')
-  //   e.target.place
-  // }
+const resetSettings = () => {
+  setMeme({
+    toptext: '',
+    bottomtext: '',
+    randomImg: 'https://i.imgflip.com/1g8my4.jpg'
+  })
+
+}
 
   return (
     <div className="App">
     <Header />
     <main>
-    <MemeGenerator meme={meme} setMeme={setMeme} getRandomImage={getRandomImage} handleChange={handleChange} />
+    <MemeGenerator meme={meme} setMeme={setMeme} getRandomImage={getRandomImage} handleChange={handleChange} resetSettings={resetSettings} />
     <Meme imageSrc={meme.randomImg} inputs={meme} allMemes={allMemes}/>
     </main>
     </div>

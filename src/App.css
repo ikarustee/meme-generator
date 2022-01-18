@@ -96,7 +96,6 @@ form, label, input, button {
   max-width: 400px;
 }
 main {
-  width: 100%;
   max-width: 800px;
   margin: 0 auto;
   /* box-shadow: var(--shadow-elevation-high); */
@@ -180,6 +179,7 @@ input {
 }
 input::placeholder{
   color:#999;}
+
 button, .button {
   background-color:var(--primary);
   color:white;
@@ -205,19 +205,29 @@ button:hover {
   gap:20px;
 }
 .meme__exporter button,
-.meme__uploader .button {
+.meme__uploader .button,
+button.meme__reset {
   color:var(--primary);
   background-color:white;
   border: 2px solid var(--primary);
 }
+button.meme__reset {
+  padding: 5px 16px;
+  position: relative;
+  bottom: 8px;
+}
 .meme__exporter button:hover,
-.meme__uploader .button:hover {
+.meme__uploader .button:hover,
+button.meme__reset:hover {
   background-color:var(--primary);
   color:white;
 }
 .meme__uploader {
   text-align: center;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: end;
 }
 p.meme__uploader {
   display: flex;

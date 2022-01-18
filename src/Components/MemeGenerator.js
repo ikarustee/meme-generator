@@ -1,6 +1,6 @@
 import React from 'react'
 
-const MemeGenerator = ({meme, setMeme, getRandomImage, handleChange}) => {
+const MemeGenerator = ({meme, setMeme, getRandomImage, handleChange, resetSettings}) => {
 
     const onChangeHandler = (event) => {
         // Define custom image variable
@@ -57,6 +57,7 @@ const MemeGenerator = ({meme, setMeme, getRandomImage, handleChange}) => {
                     style={{display: 'none'}}
                     />
                     </p>
+                <button className="meme__reset" type="submit" onClick={resetSettings}>♻️ Reset all</button>
                 </div>            
         </div>
     )
