@@ -1,13 +1,14 @@
 import './App.css';
 import {useState, useEffect, createRef} from "react"
-import { exportComponentAsJPEG, exportComponentAsPNG } from 'react-component-export-image';
-
+import Meme from "./Component/Meme"
+import Header from './Component/Header';
+import MemeGenerator from './Component/MemeGenerator';
 
 function App() {
   const [allMemes, setAllMemes] = useState([])
   const [meme, setMeme] = useState({
-      topText: '',
-      bottomText: '',
+      toptext: '',
+      bottomtext: '',
       randomImg: 'https://i.imgflip.com/1g8my4.jpg'
   })
 
@@ -20,61 +21,34 @@ function App() {
       getMemes()
   },[])
 
-  const getRandomImage = () => {
+  const getRandomImage = (e) => {
+    e.preventDefault()
     const random = Math.floor(Math.random() * allMemes.length)
     const url = allMemes[random].url
-    setMeme((prev) => ({...prev, randomImg: url}))
+    setMeme((prev) => ({
+      ...prev, 
+      randomImg: url
+    }))
   }
 
   const handleChange = (e) => {
-    const {name, value} = e.target
-    setMeme((prev) => ({...prev, [name]: value}))
+    setMeme((prev) => ({...prev, [e.target.name]: e.target.value}))
   }
+
+  // const handleBlur = (e) => {
+  //   console.log('on blur')
+  //   e.target.place
+  // }
 
   return (
     <div className="App">
-    <form onSubmit={handleSubmit} >
-      <input
-      type="text"
-      name="toptext"
-      placeholder="Add text"
-      onChange={handleChange}
-      value={inputs.toptext}
-       />
-      <input
-      type="text"
-      name="bottomtext"
-      placeholder="Add text"
-      onChange={handleChange}
-      value={inputs.bottomtext}
-       />
-
-       <button type="submit" onClick={() => changeImage()}>Change image</button>
-
-    </form>
-    <Meme imageSrc={imageSrc} inputs={inputs}/>
+    <Header />
+    <main>
+    <MemeGenerator meme={meme} getRandomImage={getRandomImage} handleChange={handleChange} />
+    <Meme imageSrc={meme.randomImg} inputs={meme} allMemes={allMemes}/>
+    </main>
     </div>
   );
 }
 
 export default App;
-
-function Meme({imageSrc, inputs}) {
-  const componentRef = createRef()
-
-  return (
-    <div className="meme__holder">
-    <div className="meme" ref={componentRef}>
-      {<img className="meme__image" src={imageSrc} alt="meme" width="100" />}
-      <h2 className="top">{inputs.toptext}</h2>
-      <h2 className="bottom">{inputs.bottomtext}</h2>
-  </div>
-  <button onClick={() => exportComponentAsJPEG(componentRef)}>
-          Save as JPEG
-        </button>
-  <button onClick={() => exportComponentAsPNG(componentRef)}>
-          Save as PNG
-        </button>
-      </div>
-  )
-}

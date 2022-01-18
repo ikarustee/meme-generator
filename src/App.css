@@ -1,46 +1,87 @@
+/* Reset ================ */
+/* ======================*/
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  padding:0;
+  margin:0;
+}
+:root {
+  --primary: #6C00C8; 
+  --shadow-color: 0deg 0% 74%;
+  --shadow-elevation-high:
+  0px 0.4px 0.5px hsl(var(--shadow-color) / 0.29),
+  -0.1px 1.9px 2.1px -0.5px hsl(var(--shadow-color) / 0.29),
+  -0.3px 3.9px 4.4px -1px hsl(var(--shadow-color) / 0.29),
+  -0.5px 7.5px 8.5px -1.5px hsl(var(--shadow-color) / 0.29),
+  -0.9px 13.7px 15.4px -2px hsl(var(--shadow-color) / 0.29),
+  -1.6px 23.6px 26.6px -2.5px hsl(var(--shadow-color) / 0.29);
+}
+/* Local fonts ========== */
+/* ======================*/
+@font-face {
+  font-family: 'Poppins';
+  src: local('Poppins SemiBold'), local('Poppins-SemiBold'),
+      url('./fonts/Poppins-Light.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: local('Poppins Medium'), local('Poppins-Medium'),
+      url('./fonts/Poppins-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: 'Poppins';
+  src: local('Poppins Light'), local('Poppins-Light'),
+      url('./fonts/Poppins-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Typography ========= */
+/* ===================*/
+html, body, div, span, 
+h1, h2, h3, h4, h5, h6, p, a, b, ul, li,
+form, label, input, button {
+  font-family: 'Poppins';
+  font-weight: 300;
+}
+
+/* Container ========== */
+/* ===================*/
 .App {
   text-align: center;
-  margin-top:3em;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header {
+  width:100%;
+  background-color: var(--primary);
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header img {
+  width: 100%;
+  max-width: 400px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+main {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  /* box-shadow: var(--shadow-elevation-high); */
+  padding: 1em;
+  border-radius: 16px;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.meme__generator{
+  padding: 1em 0;
 }
 .meme {
   display: block;
-  width: 30%;
-  height:30%;
+  width: 40%;
+  height:40%;
   position: relative;
   object-fit: cover;
   margin: 0 auto;
@@ -52,7 +93,7 @@
   height:100%;
   object-fit: cover;
 }
-h2 {
+.meme h2 {
   margin: 15px 0;
   padding: 0 5px;
   font-family: impact, sans-serif;
@@ -73,4 +114,71 @@ h2 {
 }
 .meme h2.bottom {
   bottom:0;
+}
+form {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  gap:20px;
+}
+fieldset {
+  border:0;
+}
+fieldset, input {
+  display: block;
+  font-size:14px;
+  text-align: left;
+}
+label {
+  color: var(--primary);
+  padding: 4px 6px 0;
+  background-color: white;
+  font-size:14px;
+  position: relative;
+  left: 6px;
+  top: 10px;
+  width: auto;
+  box-sizing: border-box;
+}
+input, button {
+  border-radius: 4px;
+}
+input {
+  padding: 8px 4px 2px;
+  border: 2px solid var(--primary);
+}
+input::placeholder{
+  color:#999;}
+button {
+  background-color:var(--primary);
+  color:white;
+  font-weight: 500;
+  border:2px solid transparent;
+  position: relative;
+  bottom:9px;
+  padding: 6px 24px;
+  height:auto;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  transition: all 0.2s ease-in-out;
+}
+button:hover {
+  background-color: white;
+  border: 2px solid var(--primary);
+  color:var(--primary)
+}
+.meme__exporter {
+  display: flex;
+  justify-content: center;
+  gap:20px;
+}
+.meme__exporter button {
+  color:var(--primary);
+  background-color:white;
+  border: 2px solid var(--primary);
+}
+.meme__exporter button:hover {
+  background-color:var(--primary);
+  color:white;
 }
