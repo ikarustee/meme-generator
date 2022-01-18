@@ -151,7 +151,8 @@ form {
 }
 fieldset {
   border:0;
-  flex-basis: 30%;
+  flex-basis: 100%;
+  padding:0;
 }
 fieldset, input {
   display: block;
@@ -176,9 +177,13 @@ input {
   padding: 8px 4px 2px;
   border: 2px solid var(--primary);
   width: 100%;
+  box-sizing: border-box;
 }
 input::placeholder{
   color:#999;}
+fieldset + button {
+  margin-top:1em;
+}
 
 button, .button {
   background-color:var(--primary);
@@ -228,6 +233,7 @@ button.meme__reset:hover {
   justify-content: center;
   gap: 20px;
   align-items: end;
+  flex-wrap: wrap;
 }
 p.meme__uploader {
   display: flex;
@@ -240,4 +246,14 @@ p.meme__uploader {
 input.upload {
   margin: 0 auto;
   cursor: pointer;
+}
+@media screen and (min-width:768px) {
+  fieldset {
+    flex-basis: 30%;
+  }
+  fieldset + button {
+    margin-top: 0;
+    position: relative;
+    bottom: 0;
+}
 }
