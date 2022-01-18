@@ -4,48 +4,31 @@ import { exportComponentAsJPEG, exportComponentAsPNG } from 'react-component-exp
 
 
 function App() {
-  const [memes, setMemes] = useState({})
-  const [inputs, setInputs] = useState({toptext: '', bottomtext: ''})
-  const random = Math.floor(Math.random() * 100)
-  let imageSrc = memes.url
-  
-  // useEffect(() => {
-  //   fetch('https://api.imgflip.com/get_memes')
-  //   .then((res) => res.json())
-  //   .then((res) => setMemes(res.data.memes[random]))
-  // },[])
-  
+  const [allMemes, setAllMemes] = useState([])
+  const [meme, setMeme] = useState({
+      topText: '',
+      bottomText: '',
+      randomImg: 'https://i.imgflip.com/1g8my4.jpg'
+  })
+
   useEffect(() => {
-    async function getMemes() {
-    const res = await fetch('https://api.imgflip.com/get_memes')
-    const data = await res.json()
-    setMemes(data.data.memes)
-  } 
-    getMemes()
-  }, [])
+      async function getMemes() {
+          const res = await fetch('https://api.imgflip.com/get_memes')
+          const data = await res.json()
+          setAllMemes(data.data.memes)
+      }
+      getMemes()
+  },[])
 
-  function getRandomImage() {
-    const randomNumber = Math.floor(Math.random() * memes.length)
-    const url = memes[randomNumber].url
-    setMemes(prevMeme => ({
-        ...prevMeme,
-        randomImage: url
-    }))
+  const getRandomImage = () => {
+    const random = Math.floor(Math.random() * allMemes.length)
+    const url = allMemes[random].url
+    setMeme((prev) => ({...prev, randomImg: url}))
   }
 
-  const handleChange = (event) => {
-    setInputs((p) => ({...p, [event.target.name]: event.target.value}))
-  }
-
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    setInputs('')
-  }
-
-  const changeImage = () => {
-    const rand = memes[Math.floor(Math.random() * memes.length)]
-    console.log(memes)
-    // setMemes(rand)
+  const handleChange = (e) => {
+    const {name, value} = e.target
+    setMeme((prev) => ({...prev, [name]: value}))
   }
 
   return (
@@ -66,7 +49,7 @@ function App() {
       value={inputs.bottomtext}
        />
 
-       <button type="submit" onClick={() => getRandomImage()}>Change image</button>
+       <button type="submit" onClick={() => changeImage()}>Change image</button>
 
     </form>
     <Meme imageSrc={imageSrc} inputs={inputs}/>
