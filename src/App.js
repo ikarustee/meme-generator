@@ -44,7 +44,7 @@ function App() {
     <div className="App">
     <Header />
     <main>
-    <MemeGenerator meme={meme} getRandomImage={getRandomImage} handleChange={handleChange} />
+    <MemeGenerator meme={meme} setMeme={setMeme} getRandomImage={getRandomImage} handleChange={handleChange} />
     <Meme imageSrc={meme.randomImg} inputs={meme} allMemes={allMemes}/>
     </main>
     </div>

@@ -1,6 +1,17 @@
 import React from 'react'
 
-const MemeGenerator = ({meme, getRandomImage, handleChange}) => {
+const MemeGenerator = ({meme, setMeme, getRandomImage, handleChange}) => {
+
+    const onChangeHandler = (event) => {
+        // Define custom image variable
+        const customImage = event.target.files[0]
+        setMeme((prev) => ({
+            ...prev,
+            randomImg: URL.createObjectURL(customImage) // creates DOMstring which represents the object
+        }))
+    
+    }
+
     return (
         <div className="meme__generator">
             <form onSubmit={getRandomImage} >
@@ -33,7 +44,20 @@ const MemeGenerator = ({meme, getRandomImage, handleChange}) => {
                     />
                 </fieldset>
                 <button type="submit" onClick={(e) => getRandomImage(e)}>Change image</button>
-                </form>            
+                </form>
+                <div className="meme__uploader">
+                    <p className="meme__uploader">Or upload your own image
+                    <label for="file" class="button">Select Image</label>
+                    <input 
+                    id="file"
+                    className="upload"
+                    type="file" 
+                    name="file" 
+                    onChange={onChangeHandler}
+                    style={{display: 'none'}}
+                    />
+                    </p>
+                </div>            
         </div>
     )
 }
