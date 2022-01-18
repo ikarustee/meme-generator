@@ -1,8 +1,8 @@
 import './App.css';
 import {useState, useEffect, createRef} from "react"
-import Meme from "./Component/Meme"
-import Header from './Component/Header';
-import MemeGenerator from './Component/MemeGenerator';
+import Meme from "./Components/Meme"
+import Header from './Components/Header';
+import MemeGenerator from './Components/MemeGenerator';
 
 function App() {
   const [allMemes, setAllMemes] = useState([])
