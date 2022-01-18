@@ -6,22 +6,22 @@ body {
   margin:0;
 }
 :root {
-  --primary: #6C00C8; 
-    --shadow-color: 273deg 100% 19%;
-    --shadow-elevation-low:
-      0px 0.3px 0.3px hsl(var(--shadow-color) / 0.63),
-      0px 1.2px 1.3px -2.5px hsl(var(--shadow-color) / 0.63);
-    --shadow-elevation-medium:
-      0px 0.3px 0.3px hsl(var(--shadow-color) / 0.59),
-      0px 1.6px 1.8px -1.2px hsl(var(--shadow-color) / 0.59),
-      0.1px 6.2px 7px -2.5px hsl(var(--shadow-color) / 0.59);
-    --shadow-elevation-high:
-      0px 0.3px 0.3px hsl(var(--shadow-color) / 0.54),
-      0px 2.6px 2.9px -0.5px hsl(var(--shadow-color) / 0.54),
-      0.1px 5.5px 6.2px -1px hsl(var(--shadow-color) / 0.54),
-      0.1px 10.7px 12px -1.5px hsl(var(--shadow-color) / 0.54),
-      0.2px 19.7px 22.2px -2px hsl(var(--shadow-color) / 0.54),
-      0.4px 34.2px 38.5px -2.5px hsl(var(--shadow-color) / 0.54);
+  --primary: #6c00c8; 
+  --shadow-color: 240deg 54% 19%;
+  --shadow-elevation-low:
+    0px 0.3px 0.3px hsl(var(--shadow-color) / 0.63),
+    0px 1.2px 1.3px -2.5px hsl(var(--shadow-color) / 0.63);
+  --shadow-elevation-medium:
+    0px 0.3px 0.3px hsl(var(--shadow-color) / 0.59),
+    0px 1.6px 1.8px -1.2px hsl(var(--shadow-color) / 0.59),
+    0.1px 6.2px 7px -2.5px hsl(var(--shadow-color) / 0.59);
+  --shadow-elevation-high:
+    0px 0.3px 0.3px hsl(var(--shadow-color) / 0.54),
+    0px 2.6px 2.9px -0.5px hsl(var(--shadow-color) / 0.54),
+    0.1px 5.5px 6.2px -1px hsl(var(--shadow-color) / 0.54),
+    0.1px 10.7px 12px -1.5px hsl(var(--shadow-color) / 0.54),
+    0.2px 19.7px 22.2px -2px hsl(var(--shadow-color) / 0.54),
+    0.4px 34.2px 38.5px -2.5px hsl(var(--shadow-color) / 0.54);
 }
 /* Local fonts ========== */
 /* ======================*/
@@ -65,7 +65,11 @@ form, label, input, button {
 /* ===================*/
 #root {
   background: #4C008F;
+  background: #005C97;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #6600b9, #005C97);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #6600b9, #005C97); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   padding: 2em 1em;
+  min-height: 100vh;
 }
 .App {
   text-align: center;
