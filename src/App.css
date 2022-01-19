@@ -121,11 +121,12 @@ main {
   /* object-fit: cover; */
 }
 .meme h2 {
-  margin: 15px 0;
-  padding: 0 5px;
   font-family: impact, sans-serif;
   font-size: 2em;
   text-transform: uppercase;
+  margin: 15px 0;
+  padding: 0 5px;
+  box-sizing: border-box;
   color: white;
   letter-spacing: 1px;
   position:absolute;
