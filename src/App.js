@@ -9,7 +9,7 @@ function App() {
   const [meme, setMeme] = useState({
       toptext: '',
       bottomtext: '',
-      randomImg: 'https://i.imgflip.com/1g8my4.jpg'
+      randomImg: 'https://i.imgflip.com/1yxkcp.jpg'
   })
 
   useEffect(() => {
@@ -39,7 +39,7 @@ const resetSettings = () => {
   setMeme({
     toptext: '',
     bottomtext: '',
-    randomImg: 'https://i.imgflip.com/1g8my4.jpg'
+    randomImg: 'https://i.imgflip.com/1yxkcp.jpg'
   })
 
 }

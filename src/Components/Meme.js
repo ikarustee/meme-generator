@@ -3,19 +3,29 @@ import { exportComponentAsJPEG, exportComponentAsPNG } from 'react-component-exp
 
 function Meme({imageSrc, inputs, allMemes}) {
     const componentRef = createRef()
+
+    const params = {
+      html2CanvasOptions: {
+          backgroundColor:'transparent',
+          scrollX: -window.scrollX,
+          scrollY: -window.scrollY,
+          windowWidth: document.documentElement.offsetWidth,
+          windowHeight: document.documentElement.offsetHeight
+      }
+};
   
     return (
       <div className="meme__holder">
-      <div className="meme" ref={componentRef}>
+      <div id="meme" className="meme" ref={componentRef}>
         {<img className="meme__image" src={imageSrc} alt="meme" width="100" />}
         <h2 className="top">{inputs.toptext}</h2>
         <h2 className="bottom">{inputs.bottomtext}</h2>
     </div>
     <div className="meme__exporter">
-    <button onClick={() => exportComponentAsJPEG(componentRef)}>
+    <button onClick={() => exportComponentAsJPEG(componentRef, params)}>
             Save as JPEG
           </button>
-    <button onClick={() => exportComponentAsPNG(componentRef)}>
+    <button onClick={() => exportComponentAsPNG(componentRef, params)}>
             Save as PNG
           </button>
           </div>
