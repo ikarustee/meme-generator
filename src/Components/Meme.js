@@ -1,7 +1,7 @@
 import React, {createRef} from 'react'
 import { exportComponentAsJPEG, exportComponentAsPNG } from 'react-component-export-image';
 
-function Meme({imageSrc, inputs, allMemes}) {
+function Meme({imageSrc, inputs}) {
     const componentRef = createRef()
 
     const params = {
@@ -22,12 +22,12 @@ function Meme({imageSrc, inputs, allMemes}) {
         <h2 className="bottom">{inputs.bottomtext}</h2>
     </div>
     <div className="meme__exporter">
-    <button onClick={() => exportComponentAsJPEG(componentRef, params)}>
-            Save as JPEG
-          </button>
-    <button onClick={() => exportComponentAsPNG(componentRef, params)}>
-            Save as PNG
-          </button>
+      <button className="btn" onClick={() => exportComponentAsJPEG(componentRef, params)}>
+              Save as JPEG
+      </button>
+      <button className="btn" onClick={() => exportComponentAsPNG(componentRef, params)}>
+              Save as PNG
+      </button>
           </div>
         </div>
     )
