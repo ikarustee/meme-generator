@@ -43,11 +43,11 @@ const MemeGenerator = ({meme, setMeme, getRandomImage, handleChange, resetSettin
                     value={meme.bottomtext}
                     />
                 </fieldset>
-                <button type="submit" onClick={(e) => getRandomImage(e)}>Change image</button>
                 </form>
                 <div className="meme__uploader">
-                    <p className="meme__uploader">Or upload your own image
-                    <label htmlFor="file" className="button">Select Image</label>
+                <button type="submit" onClick={(e) => getRandomImage(e)}>Change image</button>
+                    {/* <p className="meme__uploader">Or upload your own image</p> */}
+                    <label htmlFor="file" className="button">Select own image</label>
                     <input 
                     id="file"
                     className="upload"
@@ -56,9 +56,8 @@ const MemeGenerator = ({meme, setMeme, getRandomImage, handleChange, resetSettin
                     onChange={onChangeHandler}
                     style={{display: 'none'}}
                     />
-                    </p>
-                <button className="meme__reset" type="submit" onClick={resetSettings}>♻️ Reset all</button>
-                </div>            
+                    <button className="meme__reset" type="submit" onClick={resetSettings}>♻️ Reset all</button>
+                </div>
         </div>
     )
 }

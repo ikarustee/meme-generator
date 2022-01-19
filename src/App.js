@@ -9,7 +9,7 @@ function App() {
   const [meme, setMeme] = useState({
       toptext: '',
       bottomtext: '',
-      randomImg: 'https://i.imgflip.com/1yxkcp.jpg'
+      randomImg: 'https://i.imgflip.com/39t1o.jpg'
   })
 
   useEffect(() => {
@@ -39,9 +39,8 @@ const resetSettings = () => {
   setMeme({
     toptext: '',
     bottomtext: '',
-    randomImg: 'https://i.imgflip.com/1yxkcp.jpg'
+    randomImg: 'https://i.imgflip.com/39t1o.jpg'
   })
-
 }
 
   return (
@@ -49,7 +48,7 @@ const resetSettings = () => {
     <Header />
     <main>
     <MemeGenerator meme={meme} setMeme={setMeme} getRandomImage={getRandomImage} handleChange={handleChange} resetSettings={resetSettings} />
-    <Meme imageSrc={meme.randomImg} inputs={meme} allMemes={allMemes}/>
+    <Meme imageSrc={meme.randomImg} inputs={meme}/>
     </main>
     </div>
   );
