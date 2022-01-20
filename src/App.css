@@ -222,6 +222,7 @@ button:hover,
 }
 .meme__exporter .btn {
 	flex-basis: calc(50% - 10px);
+  flex:1;
 }
 button.meme__reset {
   flex-basis: 100%;
@@ -247,7 +248,8 @@ button.meme__reset {
 .meme__uploader button:not(.meme__reset), .button {
   bottom: 0;
   flex-basis: calc(50% - 10px)!important;
-  margin-top: 1em;
+  flex:1;
+  margin-top: 0;
   padding: 6px 16px;
 }
 .meme__uploader button:not(.button) {
