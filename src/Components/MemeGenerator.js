@@ -11,7 +11,6 @@ const MemeGenerator = ({meme, setMeme, getRandomImage, handleChange, resetSettin
         }))
     
     }
-
     return (
         <div className="meme__generator">
             <form onSubmit={getRandomImage} >
@@ -46,7 +45,6 @@ const MemeGenerator = ({meme, setMeme, getRandomImage, handleChange, resetSettin
                 </form>
                 <div className="meme__uploader">
                 <button type="submit" onClick={(e) => getRandomImage(e)}>Change image</button>
-                    {/* <p className="meme__uploader">Or upload your own image</p> */}
                     <label htmlFor="file" className="button">Select own image</label>
                     <input 
                     id="file"
