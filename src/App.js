@@ -9,7 +9,8 @@ function App() {
   const [meme, setMeme] = useState({
       toptext: '',
       bottomtext: '',
-      randomImg: 'https://i.imgflip.com/39t1o.jpg'
+      randomImg: 'https://i.imgflip.com/39t1o.jpg',
+      box_count: 2
   })
 
   useEffect(() => {
@@ -19,15 +20,17 @@ function App() {
           setAllMemes(data.data.memes)
       }
       getMemes()
-  },[])
+    },[])
 
   const getRandomImage = (e) => {
     e.preventDefault()
     const random = Math.floor(Math.random() * allMemes.length)
     const url = allMemes[random].url
+    const box_count = allMemes[random].box_count
     setMeme((prev) => ({
       ...prev, 
-      randomImg: url
+      randomImg: url,
+      box_count: box_count
     }))
   }
 
@@ -48,7 +51,7 @@ const resetSettings = () => {
     <Header />
     <main>
     <MemeGenerator meme={meme} setMeme={setMeme} getRandomImage={getRandomImage} handleChange={handleChange} resetSettings={resetSettings} />
-    <Meme imageSrc={meme.randomImg} inputs={meme}/>
+    <Meme imageSrc={meme.randomImg} boxCount={meme.box_count} inputs={meme} allMemes={allMemes} getRandomImage={getRandomImage} />
     </main>
     </div>
   );
