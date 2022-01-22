@@ -6,7 +6,7 @@ function Meme({imageSrc, inputs}) {
 
     const params = {
       html2CanvasOptions: {
-          backgroundColor: null,
+          backgroundColor:'transparent',
           scrollX: -window.scrollX,
           scrollY: -window.scrollY,
           windowWidth: document.documentElement.offsetWidth,
