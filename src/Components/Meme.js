@@ -4,15 +4,15 @@ import { exportComponentAsJPEG, exportComponentAsPNG } from 'react-component-exp
 function Meme({imageSrc, inputs}) {
     const componentRef = createRef()
 
-//     const params = {
-//       html2CanvasOptions: {
-//           backgroundColor: null,
-//           scrollX: -window.scrollX,
-//           scrollY: -window.scrollY,
-//           windowWidth: document.documentElement.offsetWidth,
-//           windowHeight: document.documentElement.offsetHeight
-//       }
-// };
+    const params = {
+      html2CanvasOptions: {
+          backgroundColor: null,
+          scrollX: -window.scrollX,
+          scrollY: -window.scrollY,
+          windowWidth: document.documentElement.offsetWidth,
+          windowHeight: document.documentElement.offsetHeight
+      }
+};
   
     return (
       <div className="meme__holder">
@@ -22,10 +22,10 @@ function Meme({imageSrc, inputs}) {
           <h2 className="bottom">{inputs.bottomtext}</h2>
         </div>
         <div className="meme__exporter">
-        <button className="btn" onClick={() => exportComponentAsJPEG(componentRef)}>
+        <button className="btn" onClick={() => exportComponentAsJPEG(componentRef, params)}>
                 Save as JPEG
         </button>
-        <button className="btn" onClick={() => exportComponentAsPNG(componentRef)}>
+        <button className="btn" onClick={() => exportComponentAsPNG(componentRef, params)}>
                 Save as PNG
         </button>
             </div>
