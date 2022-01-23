@@ -242,7 +242,7 @@ button.meme__reset {
   gap: 20px;
   align-items: end;
   flex-wrap: wrap;
-  margin: 1em auto;
+  margin: 1.5em auto;
   width: 100%;
 }
 .meme__uploader button:not(.meme__reset), .button {
