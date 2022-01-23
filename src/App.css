@@ -70,7 +70,7 @@ form, label, input, button {
   /* background: -webkit-linear-gradient(to bottom, #6600b9, #005C97);  Chrome 10-25, Safari 5.1-6 */
   /* background: linear-gradient(to bottom, #6600b9, #005C97); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
   padding: 1em;
-  min-height: 100vh;
+  
 }
 .App {
   text-align: center;
